@@ -1,4 +1,4 @@
-def pretty(a_dict, indent=0):
+def pprint(a_dict, indent=0):
     '''
         Pretty prints a deep python dictionary with indent levels
     '''
@@ -8,10 +8,12 @@ def pretty(a_dict, indent=0):
 
         str_out += '\t' * indent + str(key) + ': '
         if isinstance(value, dict):
-            str_out += '\n' + pretty(value, indent+1)
+            str_out += '\n' + pprint(value, indent+1)
         else:
             str_out += str(value) + '\n'
-    return str_out
+    
+    if indent == 0:
+        print(str_out)
 
 def get_methods_of_object(obj):
     '''
