@@ -1,19 +1,21 @@
-def pprint(a_dict, indent=0):
+def pprint(a_dict):
     '''
         Pretty prints a deep python dictionary with indent levels
     '''
+    pretty_str = pprint_helper(a_dict)
+    print(pretty_str)
+
+def pprint_helper(d, indent=0):
     str_out = ""
-    for key in sorted(a_dict):
-        value = a_dict[key]
+    for key in sorted(d):
+        value = d[key]
 
         str_out += '\t' * indent + str(key) + ': '
         if isinstance(value, dict):
-            str_out += '\n' + pprint(value, indent+1)
+            str_out += '\n' + pprint_helper(value, indent+1)
         else:
             str_out += str(value) + '\n'
-    
-    if indent == 0:
-        print(str_out)
+    return str_out
 
 def get_methods_of_object(obj):
     '''
