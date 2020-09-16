@@ -6,6 +6,7 @@ setup(
     description='Utility package by James Fang',
     url='https://github.com/jthefang/jf_util',
     author='James Fang',
+    author_email='jtotheamesfang@gmail.com',
     license='MIT',
     packages=['jf_util'],
     zip_safe=False,
